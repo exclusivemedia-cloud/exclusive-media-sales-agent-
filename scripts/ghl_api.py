@@ -13,6 +13,9 @@ Commands:
   add-tag <contact_id> <tag>             Add a tag to a contact
   add-note <contact_id> <text>           Add a note to a contact
   add-task <contact_id> <title> <body>   Add a task to a contact (due tomorrow)
+  create-contact <firstName> <lastName> <companyName> <email> <phone> <tag>
+                                          Create a contact with the given tag
+                                          (prints the new contact id)
 """
 import json
 import os
@@ -188,6 +191,25 @@ def cmd_add_task(contact_id, title, body_text):
         sys.exit(1)
 
 
+def cmd_create_contact(first_name, last_name, company_name, email, phone, tag):
+    status, resp = _request(
+        "POST",
+        "/contacts/",
+        body={
+            "locationId": LOCATION_ID,
+            "firstName": first_name,
+            "lastName": last_name,
+            "companyName": company_name,
+            "email": email,
+            "phone": phone,
+            "tags": [tag],
+        },
+    )
+    print(f"HTTP {status}: {json.dumps(resp)}")
+    if status >= 400:
+        sys.exit(1)
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -204,6 +226,8 @@ def main():
         cmd_add_note(*args)
     elif cmd == "add-task" and len(args) == 3:
         cmd_add_task(*args)
+    elif cmd == "create-contact" and len(args) == 6:
+        cmd_create_contact(*args)
     else:
         print(__doc__)
         sys.exit(1)

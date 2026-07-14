@@ -1,1 +1,5 @@
 config/.env
+config/gmail_token.json
+config/gmail_oauth_client.json
+__pycache__/
+*.pyc

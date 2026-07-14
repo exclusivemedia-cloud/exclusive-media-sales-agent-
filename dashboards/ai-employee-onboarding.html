@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Operations Manager - Autonomous Onboarding</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Material+Icons&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for modern dark appearance */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+
+    <!-- Navigation Header -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="bg-emerald-500 text-slate-950 p-2 rounded-lg flex items-center justify-center">
+                <span class="material-icons font-bold">bolt</span>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-tight text-white flex items-center">
+                    AI OPERATIONS MANAGER <span class="ml-2 text-xs bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full font-mono border border-emerald-500/20">SaaS Onboarding</span>
+                </h1>
+                <p class="text-xs text-slate-400">100% Autonomous AI Employee Deployment Funnel</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs text-slate-300 font-mono">SYSTEMS OPERATIONAL</span>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 overflow-y-auto">
+
+        <!-- Left Column: The Autonomous Blueprint Strategy -->
+        <section class="lg:col-span-5 space-y-6">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl">
+                <h2 class="text-xl font-bold text-white flex items-center mb-3">
+                    <span class="material-icons text-emerald-400 mr-2">settings_suggest</span>
+                    The 3-Step No-Call System
+                </h2>
+                <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                    To maintain high margins and a flexible schedule, your SaaS delivery must be hands-off. Once a contractor finishes paying over text, they configure their own AI Employee using this exact template.
+                </p>
+
+                <!-- Steps Pipeline Visualization -->
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3 p-3 bg-slate-950 rounded-xl border border-slate-800/60">
+                        <div class="bg-slate-800 text-emerald-400 text-xs font-mono font-bold h-6 w-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">01</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Instant Stripe Onboarding Trigger</h4>
+                            <p class="text-xs text-slate-400">Redirect from payment page passes Stripe Session ID to block unauthorized access.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-3 p-3 bg-slate-950 rounded-xl border border-slate-800/60">
+                        <div class="bg-slate-800 text-emerald-400 text-xs font-mono font-bold h-6 w-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">02</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Dynamic Asset Form Ingestion</h4>
+                            <p class="text-xs text-slate-400">The client defines their calendar schedules, custom pricing tiers, FAQs, and zip codes right here.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-3 p-3 bg-slate-950 rounded-xl border border-slate-800/60">
+                        <div class="bg-slate-800 text-emerald-400 text-xs font-mono font-bold h-6 w-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">03</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white">Automated n8n/GHL Provisioning</h4>
+                            <p class="text-xs text-slate-400">n8n maps fields, generates GHL custom values, and sends a "Test Text" to the owner in under 5 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Automation Logs Component -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col h-[280px]">
+                <div class="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                    <h3 class="text-sm font-semibold text-slate-200 flex items-center">
+                        <span class="material-icons text-emerald-400 mr-1.5 text-lg">terminal</span>
+                        Live Webhook Deployment Logs
+                    </h3>
+                    <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Active n8n Node</span>
+                </div>
+                <div id="console-logs" class="flex-1 font-mono text-xs text-slate-300 overflow-y-auto space-y-1.5 p-3 bg-slate-950 rounded-xl border border-slate-800/50">
+                    <div class="text-slate-500">[11:42:57 PM] Waiting for secure checkout verification...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Interactive Client Onboarding Form Portal -->
+        <section class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col justify-between">
+            <div>
+                <!-- Form Header -->
+                <div class="flex items-start justify-between border-b border-slate-800 pb-6 mb-6">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 font-mono">AI Operations Manager Deployment</span>
+                        <h2 class="text-2xl font-bold text-white mt-1">Configure Your AI Employee</h2>
+                        <p class="text-sm text-slate-400 mt-1">Provide your business metrics below. Your autonomous worker will go live in 48 hours.</p>
+                    </div>
+                    <div class="bg-slate-800/80 p-3 rounded-2xl text-center border border-slate-700/50">
+                        <span class="text-xs text-slate-400 block font-medium">SaaS Package</span>
+                        <span class="text-lg font-extrabold text-white font-mono">$997<span class="text-xs font-light text-slate-400">/mo</span></span>
+                    </div>
+                </div>
+
+                <!-- Onboarding Interactive Form Fields -->
+                <form id="onboarding-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-2">Company Name</label>
+                            <input type="text" id="biz-name" required placeholder="e.g., Apex HVAC San Diego"
+                                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-2">Primary Service Zip Codes</label>
+                            <input type="text" id="zip-codes" required placeholder="e.g., 92101, 92109, 92115"
+                                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-2">GHL / Google Calendar Link</label>
+                            <input type="url" id="cal-link" required placeholder="e.g., https://link.gohighlevel.com/v2/widget/booking/..."
+                                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-2">Your Mobile Number (For Testing)</label>
+                            <input type="tel" id="owner-phone" required placeholder="e.g., +1 619 555 0199"
+                                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                        </div>
+                    </div>
+
+                    <!-- Core business parameters for the AI logic configuration -->
+                    <div class="space-y-4 pt-2">
+                        <label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1">AI Service Qualification Rules</label>
+
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1.5">What is your Minimum Call-Out Service Fee?</label>
+                                <input type="text" id="min-fee" placeholder="e.g., $120 diagnostic fee, credited toward any repair."
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-slate-200 text-sm focus:outline-none focus:border-emerald-500 transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1.5">Are there any services you absolutely do NOT perform? (Crucial for filtering leads)</label>
+                                <textarea id="exclusions" rows="2" placeholder="e.g., We do not handle commercial properties or simple pool chemical deliveries (install/remodels only)."
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-slate-200 text-sm focus:outline-none focus:border-emerald-500 transition-all resize-none"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Submission Controls -->
+            <div class="mt-8 border-t border-slate-800 pt-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div class="flex items-center space-x-2 text-slate-400 text-xs">
+                        <span class="material-icons text-emerald-400 text-sm">lock</span>
+                        <span>Secure SSL Encryption</span>
+                    </div>
+                    <button type="button" id="submit-deployment-btn"
+                        class="bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-emerald-500/20 transition-all duration-200 flex items-center justify-center space-x-2 w-full sm:w-auto">
+                        <span class="material-icons">send_and_archive</span>
+                        <span>Authorize & Deploy Engine</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive Simulated GHL Messaging Modal -->
+    <div id="test-sms-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+            <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-emerald-500 text-slate-950 h-8 w-8 rounded-full flex items-center justify-center">
+                        <span class="material-icons text-sm">android</span>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-white" id="modal-title-biz">AI Dispatch Employee</h4>
+                        <span class="text-[10px] text-emerald-400 font-mono flex items-center"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400 mr-1"></span>Deploying to your line</span>
+                    </div>
+                </div>
+                <button id="close-modal-btn" class="text-slate-400 hover:text-white">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <!-- Dynamic SMS Interaction Simulated Dashboard -->
+            <div class="p-6 space-y-4">
+                <p class="text-xs text-slate-400 leading-relaxed bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <strong>Autonomous Check:</strong> Here is how the AI Employee instantly interfaces with your customers. Type a simulated message to test the autonomous training.
+                </p>
+                <div class="space-y-2 max-h-[180px] overflow-y-auto" id="sms-thread">
+                    <div class="flex justify-start">
+                        <div class="bg-slate-800 text-slate-200 text-xs px-3.5 py-2.5 rounded-2xl max-w-[85%] rounded-tl-none">
+                            Hi! I see you guys do custom remodels. Do you have any openings this Friday to look at my pool?
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <div class="bg-emerald-500 text-slate-950 text-xs font-medium px-3.5 py-2.5 rounded-2xl max-w-[85%] rounded-tr-none">
+                            Hey! This is the automated assistant for <span id="modal-biz-placeholder">your company</span>. We sure do! Let me check availability for a custom design quote. What's your project zip code?
+                        </div>
+                    </div>
+                </div>
+                <div class="flex space-x-2 pt-2 border-t border-slate-800">
+                    <input type="text" id="sms-user-input" placeholder="Type a mock customer query..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
+                    <button id="send-mock-sms-btn" class="bg-emerald-500 text-slate-950 px-3 rounded-xl flex items-center justify-center hover:bg-emerald-400">
+                        <span class="material-icons text-sm">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Integration Scripts & Logic Configurations -->
+    <script>
+        // Log Tracker Utility for Visualizing n8n operations
+        const logger = document.getElementById('console-logs');
+        function addLog(text, type = 'info') {
+            const time = new Date().toLocaleTimeString();
+            const div = document.createElement('div');
+
+            if (type === 'success') {
+                div.className = 'text-emerald-400 font-semibold';
+                div.innerHTML = `[${time}] <span class="material-icons text-[10px] align-middle">check_circle</span> ${text}`;
+            } else if (type === 'error') {
+                div.className = 'text-red-400 font-semibold';
+                div.innerHTML = `[${time}] <span class="material-icons text-[10px] align-middle">error</span> ${text}`;
+            } else {
+                div.className = 'text-slate-400';
+                div.innerHTML = `[${time}] ${text}`;
+            }
+            logger.appendChild(div);
+            logger.scrollTop = logger.scrollHeight;
+        }
+
+        // Onboarding form state management & submissions
+        document.getElementById('submit-deployment-btn').addEventListener('click', () => {
+            const bizName = document.getElementById('biz-name').value || 'Apex HVAC';
+            const zipCodes = document.getElementById('zip-codes').value;
+            const calLink = document.getElementById('cal-link').value;
+            const ownerPhone = document.getElementById('owner-phone').value;
+            const minFee = document.getElementById('min-fee').value || 'None';
+
+            if (!bizName || !zipCodes || !calLink || !ownerPhone) {
+                addLog('Deployment Error: All verified fields required.', 'error');
+                return;
+            }
+
+            // Simulate the backend automation processing
+            addLog('Initializing n8n autonomous webhook processing pipeline...', 'info');
+
+            setTimeout(() => {
+                addLog(`Stripe payment match authenticated for client profile.`, 'success');
+            }, 1000);
+
+            setTimeout(() => {
+                addLog(`Creating custom variables in GoHighLevel for: "${bizName}"`, 'info');
+            }, 2500);
+
+            setTimeout(() => {
+                addLog(`Injecting dynamic constraints: Min fee set to "${minFee}"`, 'info');
+            }, 4000);
+
+            setTimeout(() => {
+                addLog(`Successfully parsed zip codes: [${zipCodes}]`, 'success');
+            }, 5500);
+
+            setTimeout(() => {
+                addLog(`AI Employee built, validated, and active on: ${ownerPhone}`, 'success');
+                // Trigger the live preview modal window
+                document.getElementById('modal-biz-placeholder').innerText = bizName;
+                document.getElementById('modal-title-biz').innerText = bizName + ' AI Assistant';
+                document.getElementById('test-sms-modal').classList.remove('hidden');
+            }, 7000);
+        });
+
+        // Close the demo dashboard mock modal window
+        document.getElementById('close-modal-btn').addEventListener('click', () => {
+            document.getElementById('test-sms-modal').classList.add('hidden');
+        });
+
+        // Interactive simulated conversational sandbox
+        const smsThread = document.getElementById('sms-thread');
+        document.getElementById('send-mock-sms-btn').addEventListener('click', () => {
+            const inputField = document.getElementById('sms-user-input');
+            const message = inputField.value.trim();
+            if(!message) return;
+
+            // Append User Message to Thread
+            const userMsg = document.createElement('div');
+            userMsg.className = 'flex justify-start';
+            userMsg.innerHTML = `<div class="bg-slate-800 text-slate-200 text-xs px-3.5 py-2.5 rounded-2xl max-w-[85%] rounded-tl-none">${message}</div>`;
+            smsThread.appendChild(userMsg);
+            inputField.value = '';
+            smsThread.scrollTop = smsThread.scrollHeight;
+
+            // Generate Automated Response with absolute zero fluff to model client conversion
+            setTimeout(() => {
+                const responseMsg = document.createElement('div');
+                responseMsg.className = 'flex justify-end';
+
+                let responseText = "Understood. The autonomous parameters have logged your query. Let's secure your scheduling window right now.";
+                if(message.toLowerCase().includes('zip') || message.toLowerCase().includes('921')) {
+                    responseText = "Perfect, you are within our primary service area. Let's lock in your scheduling slot. Does Friday morning work best for our team to drive out?";
+                } else if(message.toLowerCase().includes('how much') || message.toLowerCase().includes('cost')) {
+                    const fee = document.getElementById('min-fee').value || '$120';
+                    responseText = `Our standard call-out diagnostic fee is ${fee}. This is completely credited toward any repairs we execute for your system. Shall I book your appointment slot?`;
+                }
+
+                responseMsg.innerHTML = `<div class="bg-emerald-500 text-slate-950 text-xs font-medium px-3.5 py-2.5 rounded-2xl max-w-[85%] rounded-tr-none">${responseText}</div>`;
+                smsThread.appendChild(responseMsg);
+                smsThread.scrollTop = smsThread.scrollHeight;
+            }, 1200);
+        });
+    </script>
+</body>
+</html>

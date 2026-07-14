@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Operations Manager Control Center</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Material+Icons&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Glassmorphism custom styles */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1329;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+        .glow-emerald {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-[#030712] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500/30 selection:text-emerald-300">
+
+    <!-- Top Premium Navigation Bar -->
+    <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-40 px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3 w-full md:w-auto">
+            <div class="bg-gradient-to-tr from-emerald-600 to-teal-400 text-slate-950 p-2.5 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                <span class="material-icons font-bold">rocket_launch</span>
+            </div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <h1 class="text-md font-extrabold tracking-tight text-white font-mono uppercase">Apex HVAC San Diego</h1>
+                    <span class="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full font-mono font-semibold border border-emerald-500/20">ACTIVE RETALER</span>
+                </div>
+                <p class="text-xs text-slate-400">AI Operations Manager Dispatch Engine • Live Feed</p>
+            </div>
+        </div>
+
+        <!-- Connection Diagnostics Health Bar -->
+        <div class="flex flex-wrap items-center gap-4 bg-slate-900/60 px-4 py-2 rounded-xl border border-slate-800/60 w-full md:w-auto justify-between md:justify-start">
+            <div class="flex items-center space-x-2">
+                <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[11px] font-mono text-slate-300">n8n Engine: Connected</span>
+            </div>
+            <span class="text-slate-700 hidden md:inline">|</span>
+            <div class="flex items-center space-x-2">
+                <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[11px] font-mono text-slate-300">GHL CRM Sync: Online</span>
+            </div>
+            <span class="text-slate-700 hidden md:inline">|</span>
+            <div class="text-xs font-semibold text-emerald-400 font-mono">$997/mo Active Plan</div>
+        </div>
+    </header>
+
+    <!-- Main Live Workspace Grid -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
+
+        <!-- TOP: Live Performance & ROI Metrics (Span 12) -->
+        <section class="col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <!-- Conversations Tracked -->
+            <div class="bg-slate-900/40 border border-slate-800/80 p-4 rounded-2xl flex items-center justify-between relative overflow-hidden group hover:border-slate-700/80 transition-all duration-300">
+                <div class="space-y-1">
+                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Total Captured SMS</span>
+                    <h3 id="stat-conversations" class="text-2xl font-bold text-white font-mono">142</h3>
+                    <p class="text-[10px] text-emerald-400 flex items-center gap-1 font-mono">
+                        <span class="material-icons text-xs">trending_up</span> +18 past 24h
+                    </p>
+                </div>
+                <div class="bg-slate-800/50 p-3 rounded-xl text-slate-400 group-hover:text-emerald-400 transition-colors">
+                    <span class="material-icons">forum</span>
+                </div>
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-500/5 rounded-full blur-xl"></div>
+            </div>
+
+            <!-- Leads Auto-Qualified -->
+            <div class="bg-slate-900/40 border border-slate-800/80 p-4 rounded-2xl flex items-center justify-between relative overflow-hidden group hover:border-slate-700/80 transition-all duration-300">
+                <div class="space-y-1">
+                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Auto Qualified</span>
+                    <h3 id="stat-qualified" class="text-2xl font-bold text-emerald-400 font-mono">58</h3>
+                    <p class="text-[10px] text-emerald-400 flex items-center gap-1 font-mono">
+                        <span class="material-icons text-xs">verified</span> 41% conversion rate
+                    </p>
+                </div>
+                <div class="bg-slate-800/50 p-3 rounded-xl text-slate-400 group-hover:text-emerald-400 transition-colors">
+                    <span class="material-icons">filter_alt</span>
+                </div>
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-teal-500/5 rounded-full blur-xl"></div>
+            </div>
+
+            <!-- Appointments Secured -->
+            <div class="bg-slate-900/40 border border-slate-800/80 p-4 rounded-2xl flex items-center justify-between relative overflow-hidden group hover:border-slate-700/80 transition-all duration-300">
+                <div class="space-y-1">
+                    <span class="text-xs text-slate-400 uppercase tracking-wider block">GHL Bookings Booked</span>
+                    <h3 id="stat-bookings" class="text-2xl font-bold text-white font-mono">24</h3>
+                    <p class="text-[10px] text-slate-400 flex items-center gap-1 font-mono">
+                        <span class="material-icons text-xs">schedule</span> Fully synced in GHL
+                    </p>
+                </div>
+                <div class="bg-slate-800/50 p-3 rounded-xl text-slate-400 group-hover:text-teal-400 transition-colors">
+                    <span class="material-icons">event_available</span>
+                </div>
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-teal-500/5 rounded-full blur-xl"></div>
+            </div>
+
+            <!-- Estimated Revenue Saved -->
+            <div class="bg-gradient-to-br from-slate-900/90 to-emerald-950/20 border border-emerald-500/20 p-4 rounded-2xl flex items-center justify-between relative overflow-hidden glow-emerald">
+                <div class="space-y-1">
+                    <span class="text-xs text-emerald-400 uppercase tracking-widest block font-semibold">Saved Pipeline ROI</span>
+                    <h3 id="stat-roi" class="text-2xl font-black text-white font-mono">$60,000</h3>
+                    <p class="text-[10px] text-emerald-300 flex items-center gap-1 font-mono">
+                        <span class="material-icons text-[10px]">analytics</span> 60.1x of Retainer Cost
+                    </p>
+                </div>
+                <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl border border-emerald-500/20">
+                    <span class="material-icons">payments</span>
+                </div>
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
+            </div>
+
+        </section>
+
+        <!-- LEFT COL: Dispatch & Conversation Feed (Span 5) -->
+        <section class="col-span-12 lg:col-span-5 flex flex-col space-y-4 h-[650px] overflow-hidden">
+
+            <div class="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-4 flex-1 flex flex-col overflow-hidden">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+                    <div class="flex items-center space-x-2">
+                        <span class="material-icons text-emerald-400">dns</span>
+                        <h2 class="text-sm font-bold text-white uppercase tracking-wider">Live SMS Dispatch Board</h2>
+                    </div>
+                    <span id="live-indicator" class="text-[9px] bg-emerald-500/10 text-emerald-400 font-mono font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span> LIVE SYNC
+                    </span>
+                </div>
+
+                <!-- Simulation Action Bar -->
+                <div class="mb-4">
+                    <button id="btn-trigger-mock" class="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-200 flex items-center justify-center space-x-2">
+                        <span class="material-icons text-sm animate-bounce">sms</span>
+                        <span>Simulate New Missed Call / SMS</span>
+                    </button>
+                </div>
+
+                <!-- Live Conversation List Container -->
+                <div id="conversation-list" class="flex-1 overflow-y-auto space-y-2.5 pr-1">
+                    <!-- Dynamic Leads will be injected here by Javascript -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RIGHT COL: Lead Details & Live Conversation (Span 7) -->
+        <section class="col-span-12 lg:col-span-7 flex flex-col space-y-4 h-[650px] overflow-hidden">
+
+            <!-- Conversation Viewer -->
+            <div class="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-5 flex-1 flex flex-col justify-between overflow-hidden relative">
+
+                <!-- Lead Active Info Header -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-slate-800 gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-slate-800 text-slate-300 h-11 w-11 rounded-2xl flex items-center justify-center">
+                            <span class="material-icons text-lg">person</span>
+                        </div>
+                        <div>
+                            <h3 id="current-lead-name" class="text-sm font-extrabold text-white">Select a conversation...</h3>
+                            <div class="flex items-center gap-2 mt-0.5">
+                                <span id="current-lead-phone" class="text-[11px] text-slate-400 font-mono"></span>
+                                <span id="current-lead-zip" class="text-[10px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-mono"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="current-lead-badge-holder">
+                        <!-- Badge dynamically placed here -->
+                    </div>
+                </div>
+
+                <!-- Chat Messages Transcript Stream -->
+                <div id="messages-transcript-stream" class="flex-1 overflow-y-auto my-4 space-y-3.5 p-3 bg-slate-950/40 rounded-2xl border border-slate-900">
+                    <div class="h-full flex flex-col items-center justify-center text-slate-500 text-xs">
+                        <span class="material-icons text-2xl mb-1 text-slate-600">forum</span>
+                        <span>Click any conversation in the list to inspect active autonomous logic.</span>
+                    </div>
+                </div>
+
+                <!-- Manual Override Bar (Proving GHL SMS sync value) -->
+                <div class="space-y-2 pt-3 border-t border-slate-800">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-mono text-slate-400 uppercase flex items-center gap-1">
+                            <span class="material-icons text-xs text-yellow-500">lock_open</span> Manual GHL CRM Override
+                        </span>
+                        <span class="text-[10px] text-slate-500">Type below to text client directly</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <input type="text" id="override-text-input" disabled placeholder="Select a dynamic conversation to begin override..." class="flex-1 bg-slate-950 border border-slate-800/80 rounded-xl px-4 py-3 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 transition-all">
+                        <button id="btn-override-send" disabled class="bg-slate-800 text-slate-500 px-4 rounded-xl flex items-center justify-center hover:bg-emerald-500 hover:text-slate-950 active:bg-emerald-600 transition-all duration-200">
+                            <span class="material-icons text-sm">send</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- BOTTOM TAB: AI Rule Customizations (Custom Values for n8n/GHL) (Span 12) -->
+        <section class="col-span-12">
+            <div class="bg-gradient-to-r from-slate-950 to-slate-900 border border-slate-800/80 p-6 rounded-3xl shadow-xl">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-4 border-b border-slate-800/60 mb-6 gap-4">
+                    <div>
+                        <span class="text-xs text-emerald-400 font-mono font-bold uppercase tracking-wider">Tuning Console</span>
+                        <h2 class="text-lg font-bold text-white flex items-center gap-2 mt-1">
+                            <span class="material-icons text-emerald-400">settings_applications</span>
+                            Hot-Tuning AI Knowledge Base (n8n Webhook Sync)
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1">These values instantly feed into GHL custom values. Changing rules live-updates n8n's prompt context.</p>
+                    </div>
+                    <button id="btn-save-customizations" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-2.5 rounded-xl shadow-lg shadow-emerald-500/10 text-xs transition-all duration-200 flex items-center gap-2 w-full md:w-auto justify-center">
+                        <span class="material-icons text-sm">cloud_upload</span>
+                        <span>Save & Update Active AI Agent</span>
+                    </button>
+                </div>
+
+                <!-- Config Forms Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-[11px] font-mono text-slate-400 uppercase tracking-widest mb-2.5">Service Zip Codes (Filtering Zone)</label>
+                        <textarea id="tune-zip-codes" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-emerald-500 transition-all font-mono resize-none">92101, 92109, 92115, 92130, 92037</textarea>
+                        <p class="text-[10px] text-slate-500 mt-1.5">Comma-separated zips. Incoming zip checks prevent out-of-area dispatch errors.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-mono text-slate-400 uppercase tracking-widest mb-2.5">Minimum Diagnostic Fee</label>
+                        <textarea id="tune-min-fee" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-emerald-500 transition-all resize-none">$120 diagnostic call-out fee, completely credited back towards any executed repair.</textarea>
+                        <p class="text-[10px] text-slate-500 mt-1.5">The pricing AI quotes for diagnostics before sending booking calendar link.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-mono text-slate-400 uppercase tracking-widest mb-2.5">Strict Service Exclusions (Lead Filter)</label>
+                        <textarea id="tune-exclusions" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 text-xs focus:outline-none focus:border-emerald-500 transition-all resize-none">No commercial high-rises, no general swimming pools, no residential air duct cleaning only.</textarea>
+                        <p class="text-[10px] text-slate-500 mt-1.5">Ensures your technicians don't waste gas on jobs you don't do.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Notification Toast System -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-slate-900 border border-emerald-500 text-emerald-400 text-xs py-3 px-5 rounded-xl shadow-2xl transition-all duration-300 transform translate-y-20 opacity-0 z-50 flex items-center space-x-2">
+        <span class="material-icons text-sm">info</span>
+        <span id="toast-message">Custom settings deployed successfully!</span>
+    </div>
+
+    <script>
+        // In-Memory Lead & SMS Database
+        let database = [
+            {
+                id: "lead-1",
+                name: "Marcus Aurelius (Res HVAC)",
+                phone: "+1 (619) 332-9019",
+                zip: "92109",
+                status: "BOOKED", // BOOKED, QUALIFYING, OUT_OF_AREA, UNQUALIFIED
+                unread: false,
+                messages: [
+                    { sender: "customer", text: "Hey my AC unit started making a weird high-pitched screech and then blew hot air.", time: "11:21 PM" },
+                    { sender: "ai", text: "Hi Marcus! I can help secure a dispatch slot for you immediately. What is the service zip code for the property?", time: "11:21 PM" },
+                    { sender: "customer", text: "It is 92109.", time: "11:22 PM" },
+                    { sender: "ai", text: "Perfect, 92109 is inside our primary coverage. Our standard diagnostic call-out fee is $120, which gets fully credited toward your repair. Does that work for you?", time: "11:23 PM" },
+                    { sender: "customer", text: "Yes that's fine, I just need a tech tomorrow morning before it gets too hot.", time: "11:23 PM" },
+                    { sender: "ai", text: "Excellent! Let's lock in your scheduling slot. Use this link to secure your diagnostic spot: https://link.gohighlevel.com/v2/widget/booking/apex-hvac", time: "11:24 PM" }
+                ]
+            },
+            {
+                id: "lead-2",
+                name: "Serena Williams (Commercial Pool)",
+                phone: "+1 (619) 455-0103",
+                zip: "92101",
+                status: "UNQUALIFIED",
+                unread: false,
+                messages: [
+                    { sender: "customer", text: "Need commercial pool maintenance and chemical services for a luxury apartment complex.", time: "10:05 PM" },
+                    { sender: "ai", text: "Hello Serena! I can check our schedule for you. What is the service zip code for the property?", time: "10:06 PM" },
+                    { sender: "customer", text: "Zip is 92101.", time: "10:06 PM" },
+                    { sender: "ai", text: "Thanks, Serena. Just to make sure we're a match, please note we specialize in residential installations and remodels, and do not handle commercial properties or general chemical-only maintenance. Let me know if you have a residential project we can assist with!", time: "10:07 PM" }
+                ]
+            },
+            {
+                id: "lead-3",
+                name: "David Beckham (Out of Area)",
+                phone: "+1 (619) 880-4921",
+                zip: "91945",
+                status: "OUT_OF_AREA",
+                unread: false,
+                messages: [
+                    { sender: "customer", text: "Do you guys have anyone available to look at a broken furnace tonight?", time: "09:30 PM" },
+                    { sender: "ai", text: "Hi David! I can check our active schedule. Could you please provide your property's service zip code?", time: "09:31 PM" },
+                    { sender: "customer", text: "We are in Lemon Grove, zip code is 91945.", time: "09:32 PM" },
+                    { sender: "ai", text: "Thank you! Unfortunately, 91945 is outside our current active service zone. To ensure fast response times, we keep our dispatch local to San Diego proper. Apologies for the inconvenience!", time: "09:33 PM" }
+                ]
+            },
+            {
+                id: "lead-4",
+                name: "Taylor Swift (Residential Leak)",
+                phone: "+1 (858) 220-3392",
+                zip: "92037",
+                status: "QUALIFYING",
+                unread: true,
+                messages: [
+                    { sender: "customer", text: "Hey! Do you have any plumbers or HVAC specialists who can come out to La Jolla to look at a slab leak?", time: "11:40 PM" },
+                    { sender: "ai", text: "Hi Taylor! Yes, we have technicians nearby. What is your property zip code?", time: "11:41 PM" },
+                    { sender: "customer", text: "It is 92037.", time: "11:41 PM" }
+                ]
+            }
+        ];
+
+        let activeLeadId = null;
+
+        // Custom Toast Notification Utility
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+
+            if (isError) {
+                toast.classList.remove('border-emerald-500', 'text-emerald-400');
+                toast.classList.add('border-red-500', 'text-red-400');
+            } else {
+                toast.classList.add('border-emerald-500', 'text-emerald-400');
+                toast.classList.remove('border-red-500', 'text-red-400');
+            }
+
+            toast.classList.remove('opacity-0', 'translate-y-20');
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-20');
+            }, 3000);
+        }
+
+        // Render Sidebar Conversation Cards
+        function renderConversations() {
+            const container = document.getElementById('conversation-list');
+            container.innerHTML = '';
+
+            database.forEach(lead => {
+                const latestMsg = lead.messages[lead.messages.length - 1];
+                const activeClass = lead.id === activeLeadId ? 'border-emerald-500 bg-slate-900/90' : 'border-slate-800/80 bg-slate-950/40 hover:bg-slate-900/40';
+
+                let badgeHTML = '';
+                switch(lead.status) {
+                    case 'BOOKED':
+                        badgeHTML = '<span class="text-[9px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full font-mono">GHL BOOKED</span>';
+                        break;
+                    case 'QUALIFYING':
+                        badgeHTML = '<span class="text-[9px] bg-yellow-500/15 text-yellow-400 px-2 py-0.5 rounded-full font-mono">QUALIFYING</span>';
+                        break;
+                    case 'OUT_OF_AREA':
+                        badgeHTML = '<span class="text-[9px] bg-red-500/15 text-red-400 px-2 py-0.5 rounded-full font-mono">OUT OF AREA</span>';
+                        break;
+                    case 'UNQUALIFIED':
+                        badgeHTML = '<span class="text-[9px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full font-mono">FILTERED</span>';
+                        break;
+                }
+
+                const card = document.createElement('div');
+                card.className = `p-3.5 border rounded-2xl cursor-pointer transition-all duration-200 flex flex-col justify-between ${activeClass}`;
+                card.onclick = () => selectLead(lead.id);
+
+                card.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+                                ${lead.unread ? '<span class="h-2 w-2 rounded-full bg-emerald-500"></span>' : ''}
+                                ${lead.name}
+                            </h4>
+                            <p class="text-[10px] text-slate-400 font-mono mt-0.5">${lead.phone}</p>
+                        </div>
+                        ${badgeHTML}
+                    </div>
+                    <div class="mt-2.5 flex items-center justify-between gap-2">
+                        <p class="text-[11px] text-slate-300 truncate max-w-[80%]">${latestMsg ? latestMsg.text : ''}</p>
+                        <span class="text-[9px] text-slate-500 font-mono shrink-0">${latestMsg ? latestMsg.time : ''}</span>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Active State Selection
+        function selectLead(leadId) {
+            activeLeadId = leadId;
+            const lead = database.find(l => l.id === leadId);
+            if (!lead) return;
+
+            lead.unread = false; // Mark read
+            renderConversations();
+
+            // Populate Active Viewer Header
+            document.getElementById('current-lead-name').innerText = lead.name;
+            document.getElementById('current-lead-phone').innerText = lead.phone;
+            document.getElementById('current-lead-zip').innerText = lead.zip ? `ZIP: ${lead.zip}` : 'Waiting on Zip';
+
+            // Custom Badge placement
+            const badgeHolder = document.getElementById('current-lead-badge-holder');
+            let badgeHTML = '';
+            switch(lead.status) {
+                case 'BOOKED':
+                    badgeHTML = '<span class="text-xs bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-xl font-mono border border-emerald-500/20 font-bold uppercase">Auto-Booked to CRM</span>';
+                    break;
+                case 'QUALIFYING':
+                    badgeHTML = '<span class="text-xs bg-yellow-500/10 text-yellow-400 px-3 py-1 rounded-xl font-mono border border-yellow-500/20 font-bold uppercase animate-pulse">Qualification Process</span>';
+                    break;
+                case 'OUT_OF_AREA':
+                    badgeHTML = '<span class="text-xs bg-red-500/10 text-red-400 px-3 py-1 rounded-xl font-mono border border-red-500/20 font-bold uppercase">Filtered out</span>';
+                    break;
+                case 'UNQUALIFIED':
+                    badgeHTML = '<span class="text-xs bg-slate-800 text-slate-400 px-3 py-1 rounded-xl font-mono border border-slate-700 font-bold uppercase">Excluded Metric</span>';
+                    break;
+            }
+            badgeHolder.innerHTML = badgeHTML;
+
+            // Enable text input overrides
+            document.getElementById('override-text-input').disabled = false;
+            document.getElementById('override-text-input').placeholder = "Type custom response override...";
+            document.getElementById('btn-override-send').disabled = false;
+            document.getElementById('btn-override-send').classList.replace('bg-slate-800', 'bg-emerald-500');
+            document.getElementById('btn-override-send').classList.replace('text-slate-500', 'text-slate-950');
+
+            // Render Messages
+            renderTranscriptStream(lead);
+        }
+
+        // Render Conversation Bubble Streams
+        function renderTranscriptStream(lead) {
+            const container = document.getElementById('messages-transcript-stream');
+            container.innerHTML = '';
+
+            lead.messages.forEach(msg => {
+                const bubble = document.createElement('div');
+                bubble.className = msg.sender === 'customer' ? 'flex justify-start' : 'flex justify-end';
+
+                const styleClass = msg.sender === 'customer'
+                    ? 'bg-slate-900 border border-slate-800 text-slate-200 rounded-2xl rounded-tl-none'
+                    : 'bg-emerald-500 text-slate-950 font-medium rounded-2xl rounded-tr-none shadow-md shadow-emerald-500/5';
+
+                bubble.innerHTML = `
+                    <div class="p-3.5 max-w-[85%] ${styleClass}">
+                        <p class="text-xs leading-relaxed">${msg.text}</p>
+                        <span class="text-[9px] block text-right mt-1.5 opacity-60 font-mono">${msg.time}</span>
+                    </div>
+                `;
+                container.appendChild(bubble);
+            });
+
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Send manual SMS Overwrite simulation
+        document.getElementById('btn-override-send').addEventListener('click', () => {
+            const input = document.getElementById('override-text-input');
+            const text = input.value.trim();
+            if (!text || !activeLeadId) return;
+
+            const lead = database.find(l => l.id === activeLeadId);
+            if (!lead) return;
+
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            lead.messages.push({ sender: 'ai', text: `[GHL Override]: ${text}`, time });
+            input.value = '';
+
+            renderTranscriptStream(lead);
+            renderConversations();
+            showToast("Manual override message pushed to GHL API!");
+        });
+
+        // Trigger simulated client/SMS Webhook Event (n8n & GHL demonstration)
+        document.getElementById('btn-trigger-mock').addEventListener('click', () => {
+            const id = 'lead-' + Date.now();
+            const names = ["Beyoncé Knowles", "Lionel Messi", "Keanu Reeves", "Zendaya Coleman"];
+            const selectedName = names[Math.floor(Math.random() * names.length)];
+            const zips = ["92109", "92115", "92101", "91945", "90210"];
+            const selectedZip = zips[Math.floor(Math.random() * zips.length)];
+            const services = ["Need residential heating diagnostics", "Do you install pool equipment in my backyard?", "commercial high rise ventilations"];
+            const selectedService = services[Math.floor(Math.random() * services.length)];
+
+            const mockLead = {
+                id,
+                name: `${selectedName} (Simulated)`,
+                phone: `+1 (619) 555-${Math.floor(1000 + Math.random() * 9000)}`,
+                zip: selectedZip,
+                status: "QUALIFYING",
+                unread: true,
+                messages: [
+                    { sender: "customer", text: `Hi, I saw your ad. ${selectedService}. My property zip is ${selectedZip}`, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
+                ]
+            };
+
+            database.unshift(mockLead);
+            renderConversations();
+            showToast(`Inbound SMS parsed! Webhook trigger sent to n8n.`);
+
+            // Trigger AI automated response logic in 2.5 seconds
+            setTimeout(() => {
+                const updatedLead = database.find(l => l.id === id);
+                if (!updatedLead) return;
+
+                // Simple check based on simulated settings
+                const activeExclusions = document.getElementById('tune-exclusions').value.toLowerCase();
+                const activeZips = document.getElementById('tune-zip-codes').value;
+
+                let aiResponse = "";
+                if (selectedService.toLowerCase().includes("commercial")) {
+                    updatedLead.status = "UNQUALIFIED";
+                    aiResponse = "Thanks for reaching out! Just to set expectations, we specialize exclusively in residential setups and do not take commercial high-rise contracts. I apologize we aren't a match!";
+                } else if (!activeZips.includes(selectedZip)) {
+                    updatedLead.status = "OUT_OF_AREA";
+                    aiResponse = `Hey there! Thanks for texting Apex. Unfortunately, ${selectedZip} is outside our service radius. Apologies for the inconvenience!`;
+                } else {
+                    updatedLead.status = "BOOKED";
+                    const minFee = document.getElementById('tune-min-fee').value;
+                    aiResponse = `Hey! Yes, we have specialists available in ${selectedZip}. Our standard diagnostic rate is ${minFee}. If that works, use this booking link to secure your dispatch slot: https://link.gohighlevel.com/v2/widget/apex`;
+
+                    // Update Stats on ROI
+                    const currentROI = parseInt(document.getElementById('stat-roi').innerText.replace(/[^0-9]/g, ''));
+                    const currentBookings = parseInt(document.getElementById('stat-bookings').innerText);
+
+                    document.getElementById('stat-bookings').innerText = currentBookings + 1;
+                    document.getElementById('stat-roi').innerText = `$${(currentROI + 2500).toLocaleString()}`;
+                }
+
+                updatedLead.messages.push({
+                    sender: "ai",
+                    text: aiResponse,
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                });
+
+                renderConversations();
+                if (activeLeadId === id) {
+                    selectLead(id);
+                }
+
+                showToast(`Autonomous response matched constraints & delivered.`);
+            }, 2500);
+        });
+
+        // Save customizable fields (Instantly trigger mock "Webhook sync")
+        document.getElementById('btn-save-customizations').addEventListener('click', () => {
+            const saveBtn = document.getElementById('btn-save-customizations');
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = '<span class="material-icons text-sm animate-spin">sync</span> Updating Webhook Parameters...';
+
+            setTimeout(() => {
+                saveBtn.disabled = false;
+                saveBtn.innerHTML = '<span class="material-icons text-sm">cloud_upload</span> <span>Save & Update Active AI Agent</span>';
+                showToast("System Config Sync Complete: Prompt overrides live on n8n node!");
+            }, 1500);
+        });
+
+        // Initialize Screen
+        window.onload = function() {
+            renderConversations();
+            // Auto select first lead to make it look premium on load
+            selectLead("lead-4");
+        };
+    </script>
+</body>
+</html>
